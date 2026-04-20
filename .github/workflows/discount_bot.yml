@@ -1,0 +1,29 @@
+name: Discount Bot
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # runs every 6 hours (1AM, 7AM, 1PM, 7PM PKT)
+  workflow_dispatch:          # lets you trigger it manually from GitHub
+
+jobs:
+  check-deals:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run discount bot
+        run: python discount_bot.py
+        env:
+          ALERT_EMAIL:        ${{ secrets.ALERT_EMAIL }}
+          GMAIL_SENDER:       ${{ secrets.GMAIL_SENDER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
