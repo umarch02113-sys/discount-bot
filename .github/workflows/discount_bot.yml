@@ -2,12 +2,14 @@ name: Discount Bot
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # runs every 6 hours (1AM, 7AM, 1PM, 7PM PKT)
-  workflow_dispatch:          # lets you trigger it manually from GitHub
+    - cron: '0 */6 * * *'   # every 6 hours
+  workflow_dispatch:          # manual trigger from GitHub
 
 jobs:
   check-deals:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write         # needed to commit the price cache back
 
     steps:
       - name: Checkout repo
@@ -19,7 +21,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install requests beautifulsoup4
 
       - name: Run discount bot
         run: python discount_bot.py
@@ -27,3 +29,11 @@ jobs:
           ALERT_EMAIL:        ${{ secrets.ALERT_EMAIL }}
           GMAIL_SENDER:       ${{ secrets.GMAIL_SENDER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+
+      - name: Save price cache to repo
+        run: |
+          git config user.name  "Discount Bot"
+          git config user.email "bot@github-actions"
+          git add price_cache.json
+          git diff --cached --quiet || git commit -m "Update price cache [skip ci]"
+          git push
