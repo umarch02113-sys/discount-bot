@@ -1,6 +1,6 @@
 {
-  "Outfitters::Mock Neck T-Shirt": 990.0,
-  "Outfitters::Basic T-Shirt": 890.0,
+  "Outfitters::Mock Neck T-Shirt": 690.0,
+  "Outfitters::Basic T-Shirt": 1290.0,
   "Outfitters::Wide Leg Trousers": 1990.0,
   "Outfitters::Basic Slim Fit T-Shirt": 1290.0,
   "Outfitters::Basic Sweatshirt": 1490.0,
@@ -42,5 +42,12 @@
   "Diners::Light Blue Crew Neck T-Shirt": 1490.0,
   "Diners::Sky Blue Crew Neck T-Shirt": 1490.0,
   "Diners::Royal Blue Crew Neck T-Shirt": 1490.0,
-  "FUROR Jeans::Relaxed Fit Emblem Tee - FMTBL24-013": 747.0
+  "FUROR Jeans::Relaxed Fit Emblem Tee - FMTBL24-013": 747.0,
+  "Outfitters::Textured T-Shirt": 590.0,
+  "Outfitters::Embroidered  T-Shirt": 1390.0,
+  "Outfitters::Basic rib knit t-shirt": 890.0,
+  "Salt by Gul Ahmed::Cambric Embroidered Trouser WGK-TRS-DE-355": 890.0,
+  "Salt by Gul Ahmed::Dhanak Dyed Trouser WGK-TRW-DE-520": 817.0,
+  "Salt by Gul Ahmed::white Cambric Dyed Trouser KTR-43100-A": 745.0,
+  "Salt by Gul Ahmed::Printed Melody Chambray Printed Trouser WGK-TRS-DP-448": 890.0
 }
