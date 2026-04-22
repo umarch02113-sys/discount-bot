@@ -9,7 +9,7 @@ jobs:
   check-deals:
     runs-on: ubuntu-latest
     permissions:
-      contents: write         # needed to commit the price cache back
+      contents: write         # needed to save price cache back to repo
 
     steps:
       - name: Checkout repo
