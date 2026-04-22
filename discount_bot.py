@@ -232,16 +232,28 @@ def scrape_collection(collection_url):
                         if val:
                             size_vals.append(str(val))
 
-                size_ok = has_l_or_xl(size_vals)
-
-                # Use cheapest variant price
-                prices = [float(v.get("price") or 0) for v in item.get("variants", []) if float(v.get("price") or 0) > 0]
-                if not prices:
-                    continue
-                min_price = min(prices)
-
-                compare = 0.0
+                # Only keep variants that are specifically L or XL size
+                lxl_variants = []
                 for v in item.get("variants", []):
+                    v_size_vals = [
+                        str(v.get("title", "")),
+                        str(v.get("option1", "")),
+                        str(v.get("option2", "")),
+                        str(v.get("option3", "")),
+                    ]
+                    if has_l_or_xl(v_size_vals) and float(v.get("price") or 0) > 0:
+                        lxl_variants.append(v)
+
+                # Skip product entirely if no L/XL variant found
+                if not lxl_variants:
+                    continue
+
+                # Price = cheapest among L/XL variants only
+                min_price = min(float(v.get("price") or 0) for v in lxl_variants)
+
+                # compare_at_price from L/XL variants
+                compare = 0.0
+                for v in lxl_variants:
                     cp = float(v.get("compare_at_price") or 0)
                     if cp > min_price:
                         compare = cp
@@ -252,7 +264,7 @@ def scrape_collection(collection_url):
                     "price":          min_price,
                     "original_price": compare if compare > min_price else None,
                     "url":            f"{base}/products/{handle}",
-                    "size_available": size_ok,
+                    "size_available": True,
                 })
             print(f"    [{col_slug}] {len(products)} products via JSON")
             return products
