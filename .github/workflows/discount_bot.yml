@@ -2,14 +2,14 @@ name: Discount Bot
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # every 6 hours
-  workflow_dispatch:          # manual trigger from GitHub
+    - cron: '0 * * * *'    # every hour, 24/7
+  workflow_dispatch:         # manual trigger from GitHub
 
 jobs:
   check-deals:
     runs-on: ubuntu-latest
     permissions:
-      contents: write         # needed to save price cache back to repo
+      contents: write        # needed to save price cache back to repo
 
     steps:
       - name: Checkout repo
