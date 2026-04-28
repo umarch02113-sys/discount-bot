@@ -16,8 +16,8 @@ ALERT_EMAIL        = os.environ.get("ALERT_EMAIL",        "your@email.com")
 GMAIL_SENDER       = os.environ.get("GMAIL_SENDER",       "your.gmail@gmail.com")
 GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "xxxx xxxx xxxx xxxx")
 
-TROUSER_LIMIT = 2000
-SHIRT_LIMIT   = 1500
+TROUSER_LIMIT = 1500
+SHIRT_LIMIT   = 1000
 CACHE_FILE    = "price_cache.json"
 
 # ── 12 SITES — MEN'S SPECIFIC COLLECTION URLS ONLY ──
