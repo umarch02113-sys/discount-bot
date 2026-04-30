@@ -20,22 +20,22 @@ TROUSER_LIMIT = 1500
 SHIRT_LIMIT   = 1000
 CACHE_FILE    = "price_cache.json"
 
-# ── 12 SITES — MEN'S SPECIFIC COLLECTION URLS ONLY ──
+# ── 17 SITES — MEN'S SPECIFIC COLLECTION URLS ONLY ──
 # Each site lists ONLY the men's trouser and t-shirt collection URLs.
 # Bot scrapes ONLY these pages — women/kids collections are never touched.
 SITES = [
     {
         "name": "Outfitters",
         "collections": [
-            "https://outfitters.com.pk/collections/men-trousers",
+            "https://outfitters.com.pk/collections/men-trousers-and-jeans",
             "https://outfitters.com.pk/collections/men-t-shirts",
         ]
     },
     {
         "name": "Engine",
         "collections": [
-            "https://engine.com.pk/collections/men-trousers",
-            "https://engine.com.pk/collections/men-t-shirts",
+            "https://engine.com.pk/collections/men-trouser",
+            "https://engine.com.pk/collections/men-tshirts",
         ]
     },
     {
@@ -49,28 +49,27 @@ SITES = [
         "name": "FITTED",
         "collections": [
             "https://fittedshop.com/collections/bottoms",
-            "https://fittedshop.com/collections/t-shirts",
+            "https://fittedshop.com/collections/crew",
         ]
     },
     {
         "name": "Mad Official Store",
         "collections": [
-            "https://madofficialstore.shop/collections/trousers",
-            "https://madofficialstore.shop/collections/t-shirts",
+            "https://madofficialstore.shop/collections/all",
         ]
     },
     {
         "name": "Ismail's Clothing",
         "collections": [
-            "https://www.ismailsclothing.com/collections/men-trousers",
-            "https://www.ismailsclothing.com/collections/men-t-shirts",
+            "https://www.ismailsclothing.com/collections/urban-studio-men-trousers",
+            "https://www.ismailsclothing.com/collections/urban-studio-t-shirts",
         ]
     },
     {
         "name": "Turbo Brands",
         "collections": [
-            "https://turbobrandsfactory.com/collections/trouser-collection",
-            "https://turbobrandsfactory.com/collections/tees",
+            "https://turbobrandsfactory.com/collections/trousers",
+            "https://turbobrandsfactory.com/collections/t-shirts",
         ]
     },
     {
@@ -83,8 +82,8 @@ SITES = [
     {
         "name": "Diners",
         "collections": [
-            "https://diners.com.pk/collections/men-trousers",
-            "https://diners.com.pk/collections/men-t-shirts",
+            "https://diners.com.pk/collections/diner-trouser",
+            "https://diners.com.pk/collections/diners-t-shirts",
         ]
     },
     {
@@ -97,15 +96,51 @@ SITES = [
     {
         "name": "FUROR Jeans",
         "collections": [
-            "https://furorjeans.com/collections/men-trousers",
+            "https://furorjeans.com/collections/men-bottoms",
             "https://furorjeans.com/collections/men-tees",
         ]
     },
     {
         "name": "elo (Export Leftovers)",
         "collections": [
-            "https://www.exportleftovers.com/collections/mens-jeans-trousers-shorts",
-            "https://www.exportleftovers.com/collections/mens-tees",
+            "https://www.exportleftovers.com/collections/mens-trousers-1",
+            "https://www.exportleftovers.com/collections/mens-tee",
+        ]
+    },
+    {
+        "name": "Cambridge",
+        "collections": [
+            "https://thecambridgeshop.com/collections/mens-trousers",
+            "https://thecambridgeshop.com/collections/men-t-shirts",
+        ]
+    },
+    {
+        "name": "Charcoal",
+        "collections": [
+            "https://charcoal.com.pk/collections/casual-trouser",
+            "https://charcoal.com.pk/collections/t-shirts",
+        ]
+    },
+    {
+        "name": "Edenrobe",
+        "collections": [
+            "https://edenrobe.com/collections/men-bottoms",
+            "https://edenrobe.com/collections/men-graphic-tees",
+            "https://edenrobe.com/collections/men-tops",
+        ]
+    },
+    {
+        "name": "Mendeez",
+        "collections": [
+            "https://mendeez.com/collections/mens-trousers",
+            "https://mendeez.com/collections/t-shirts",
+        ]
+    },
+    {
+        "name": "Monark",
+        "collections": [
+            "https://monark.com.pk/collections/trousers",
+            "https://monark.com.pk/collections/men-tshirts",
         ]
     },
 ]
@@ -441,7 +476,7 @@ def send_email(deals):
         "<tr><td style='padding:20px 0 0;text-align:center;'>"
         "<div style='font-size:11px;color:#adadb0;line-height:1.8;'>"
         "Only fresh price drops &mdash; no repeat alerts<br>"
-        "Monitoring 12 stores every 6 hours &bull; GitHub Actions"
+        "Monitoring 17 stores every 6 hours &bull; GitHub Actions"
         "</div></td></tr>"
         "</table></td></tr></table></body></html>"
     )
